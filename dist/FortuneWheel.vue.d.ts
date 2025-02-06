@@ -20,6 +20,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     spin: () => Promise<void>;
 }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     done: (value: Data) => void;
+    update: (value: Data) => void;
 }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<Props>, {
     animDuration: number;
     modelValue: number;
@@ -31,6 +32,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
 }>>> & Readonly<{
     onDone?: ((value: Data) => any) | undefined;
+    onUpdate?: ((value: Data) => any) | undefined;
 }>, {
     animDuration: number;
     modelValue: number;

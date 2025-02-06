@@ -16,8 +16,9 @@ interface State {
   vis: SVGGElement | null
 }
 
-interface Emits {
+export interface Emits { // Add "export"
   (e: 'done', value: Data): void
+  (e: 'update', value: Data): void
 }
 
 export function useSpin(state: State, props: Props, emit: Emits) {
@@ -58,7 +59,22 @@ export function useSpin(state: State, props: Props, emit: Emits) {
           .transition()
           .duration(props.animDuration)
           .ease(d3.easeBackOut.overshoot(0.3))
-          .attrTween('transform', () => (t) => `rotate(${interpolate(t)})`)
+          .attrTween('transform', () => {
+            const dataLength = props.data.length;
+            const sliceWidth = FULL_CIRCLE / dataLength;
+            return (t) => {
+              const angle = interpolate(t)
+              // Calculate current prize during rotation
+              const currentAngle = angle % FULL_CIRCLE
+              let picked = Math.round(dataLength - (currentAngle / sliceWidth))
+              picked = picked >= dataLength ? picked % dataLength : picked
+              if (picked < 0) picked += dataLength
+              const currentData = props.data[picked]
+              
+              emit('update', currentData) // 👈 This emits real-time updates
+              return `rotate(${angle})`
+            }
+          })
           .end()
       }
 

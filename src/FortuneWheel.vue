@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { type Emits } from './composables/useSpin'
 import { watch, onMounted, reactive } from 'vue'
 import * as d3 from 'd3'
 import type { Arc, Pie } from 'd3'
@@ -24,6 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{
   (e: 'done', value: Data): void
+  (e: 'update', value: Data): void
 }>()
 
 const { wheelSize, wheelStyle } = useWheelSize(props)
@@ -41,7 +43,8 @@ const state = reactive({
 })
 
 const { createWheel, redrawWheel } = useWheelCreation(state, props, wheelSize)
-const { spin } = useSpin(state, props, emit)
+
+const { spin } = useSpin(state, props, emit as Emits)
 
 watch(() => props.data, redrawWheel, { deep: true })
 

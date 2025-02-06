@@ -9,8 +9,9 @@ interface State {
     rotation: number;
     vis: SVGGElement | null;
 }
-interface Emits {
+export interface Emits {
     (e: 'done', value: Data): void;
+    (e: 'update', value: Data): void;
 }
 export declare function useSpin(state: State, props: Props, emit: Emits): {
     spin: () => Promise<void>;

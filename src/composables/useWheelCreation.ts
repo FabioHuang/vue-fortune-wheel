@@ -76,8 +76,8 @@ export function useWheelCreation(
       .select(state.container)
       .append('path')
       .attr('d', pathArrow)
-      .attr('stroke', '#ffffff')
-      .attr('fill', '#FFFFFF')
+      .attr('stroke', '#000000')
+      .attr('fill', '#000000')
       .attr('filter', 'url(#shadow)')
       .attr('transform', `matrix(1, 0, 0, 1, -95, -${wheelSize.value.height / 2 - 20})`)
       .attr('stroke-linejoin', 'round')
@@ -185,8 +185,8 @@ export function useWheelCreation(
       .join('path')
       .attr('class', 'slice')
       .attr('d', state.arcGenerator)
-      .attr('stroke', '#000000')
-      .attr('stroke-width', '3')
+      .attr('stroke', '#ffffff')
+      .attr('stroke-width', '5')
       .attr('fill', (d) => d.data.bgColor)
 
     slices.each(function (d, i) {

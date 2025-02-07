@@ -68,10 +68,12 @@ export function useWheelCreation(
 
   const createArrow = () => {
     if (!state.container) return
-  
-    // Sharper arrow path data
-    const pathArrow = 'M95.3,0 L80,40 L95.3,55 L110.6,40 Z'
-  
+
+    // Modified path data for sharper tip and rounder base
+    const pathArrow = 
+      'M95.3,5c-22,0-30,8-25,32c3.5,24,27,47,27,47s23.5-23,27-47C125.3,13,117.3,5,95.3,5z'
+
+    // Create arrow path
     state.arrow = d3
       .select(state.container)
       .append('path')
@@ -80,9 +82,18 @@ export function useWheelCreation(
       .attr('fill', '#000000')
       .attr('filter', 'url(#shadow)')
       .attr('transform', `matrix(1, 0, 0, 1, -95, -${wheelSize.value.height / 2 - 20})`)
-      .attr('stroke-linejoin', 'miter') // Changed to miter for sharp corners
+      .attr('stroke-linejoin', 'round')
       .attr('stroke-width', '4')
       .node()
+
+    // Add white dot at base center
+    d3.select(state.container)
+      .append('circle')
+      .attr('cx', 95.3)
+      .attr('cy', 84)  // Center of the modified base
+      .attr('r', 6)
+      .attr('fill', 'white')
+      .attr('transform', `matrix(1, 0, 0, 1, -95, -${wheelSize.value.height / 2 - 20})`)
   }
 
   const createWheel = () => {

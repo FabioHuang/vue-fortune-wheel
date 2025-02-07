@@ -71,7 +71,7 @@ export function useWheelCreation(
 
     // Modified path data for sharper tip and rounder base
     const pathArrow =
-      'M 95.195 31.734 m 21.9 0 a 21.9 21.9 0 1 0 -43.8 0 L 95.341 96.625 '
+      'M 95.195 31.734 m 21.9 0 a 21.9 21.9 0 1 0 -43.8 0 L 95.195 96.625 '
 
     // Create arrow path
     state.arrow = d3

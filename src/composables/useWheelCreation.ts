@@ -236,7 +236,7 @@ export function useWheelCreation(
       .data(arcs)
       .join('text')
       .attr('class', 'middleArcText')
-      .attr('text-anchor', 'end')
+      .attr('text-anchor', 'middle')
       .attr('dominant-baseline', 'middle')
       .attr('font-size', `${fontSize.value}px`) // Explicit size
       .attr('font-family', 'system-ui') // Set the font here
@@ -247,7 +247,7 @@ export function useWheelCreation(
         const textRadius = outerRadius - 30 // 20px from edge (adjust as needed)
         const x = Math.cos(midAngle) * textRadius
         const y = Math.sin(midAngle) * textRadius        
-        const degrees = midAngle * (180 / Math.PI)
+        const degrees = midAngle * (180 / Math.PI) + 180
         return `translate(${x}, ${y}) rotate(${degrees}) scale(-1, -1)`
       })
       .text((d) => d.data.value)

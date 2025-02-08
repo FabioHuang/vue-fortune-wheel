@@ -46,7 +46,7 @@ export function useWheelCreation(
       .attr('cy', 0)
       .attr('r', (wheelSize.value.width - 4) / 2)
       .attr('fill', 'transparent')
-      .attr('stroke-width', '16')
+      .attr('stroke-width', '32')
       .attr('filter', 'url(#shadow)')
       .attr('stroke', '#ffffff')
   }

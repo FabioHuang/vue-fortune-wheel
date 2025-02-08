@@ -1959,7 +1959,7 @@ function ra(t, n, e) {
   const r = () => {
     t.container && N(t.container).append("circle").attr("cx", 0).attr("cy", 0).attr("r", t.rayon / 2.5).attr("fill", "#ffffff").attr("filter", "url(#shadow)").attr("stroke-width", 4).attr("stroke", "#000000");
   }, i = () => {
-    t.container && N(t.container).append("circle").attr("cx", 0).attr("cy", 0).attr("r", (e.value.width - 4) / 2).attr("fill", "transparent").attr("stroke-width", "16").attr("filter", "url(#shadow)").attr("stroke", "#ffffff");
+    t.container && N(t.container).append("circle").attr("cx", 0).attr("cy", 0).attr("r", (e.value.width - 4) / 2).attr("fill", "transparent").attr("stroke-width", "32").attr("filter", "url(#shadow)").attr("stroke", "#ffffff");
   }, o = () => {
     if (!t.container || !n.imgParams) return;
     const { width: p, height: g, src: w } = n.imgParams;

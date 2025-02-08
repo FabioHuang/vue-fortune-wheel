@@ -239,7 +239,6 @@ export function useWheelCreation(
       .attr('font-family', 'system-ui') // Set the font here
       .attr('font-weight', 600)
       .attr('dy', (d) => (d.endAngle > Math.PI / 2 ? -35 : 42))
-      .append('textPath')
       .attr('startOffset', '50%')
       .attr('letter-spacing', '1px')
       .attr('text-anchor', 'end')

@@ -243,9 +243,12 @@ export function useWheelCreation(
       .attr('font-weight', 600)
       .attr('transform', (d) => {
         const midAngle = (d.startAngle + d.endAngle) / 2
-        const [x, y] = state.arcGenerator!.centroid(d)
+        const outerRadius = state.rayon
+        const textRadius = outerRadius - 20 // 20px from edge (adjust as needed)
+        const x = Math.cos(midAngle) * textRadius
+        const y = Math.sin(midAngle) * textRadius        
         const degrees = midAngle * (180 / Math.PI) + 90
-        return `translate(${x}, ${y+100}) rotate(${degrees})`
+        return `translate(${x}, ${y}) rotate(${degrees})`
       })
       .text((d) => d.data.value)
       .attr('fill', (d) => d.data.color)

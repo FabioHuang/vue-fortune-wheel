@@ -236,7 +236,7 @@ export function useWheelCreation(
       .data(arcs)
       .join('text')
       .attr('class', 'middleArcText')
-      .attr('text-anchor', 'middle')
+      .attr('text-anchor', 'start')
       .attr('dominant-baseline', 'middle')
       .attr('font-size', `${fontSize.value}px`) // Explicit size
       .attr('font-family', 'system-ui') // Set the font here

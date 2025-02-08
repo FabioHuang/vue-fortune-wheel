@@ -9,7 +9,7 @@ function me(t) {
     return { width: 600, height: 600 };
   }), r = zt(() => {
     const a = Math.max(...t.data.map((o) => o.value.length), 0);
-    return a < 10 ? Yt : a <= 20 ? Yt - (20 - a) * 2 : Yt / 8;
+    return a < 10 ? Yt : a <= 20 ? Yt - (a - 10) * 2 : Yt / 8;
   }), i = zt(() => ({
     width: `${e.value.width}px`,
     height: `${e.value.height}px`,

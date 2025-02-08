@@ -226,7 +226,7 @@ export function useWheelCreation(
   }
 
   const addText = () => {
-    if (!state.pieGenerator || !state.vis) return
+    if (!state.pieGenerator || !state.vis || !state.arcGenerator) return
 
     const arcs = state.pieGenerator(props.data)
 
@@ -235,15 +235,18 @@ export function useWheelCreation(
       .data(arcs)
       .join('text')
       .attr('class', 'middleArcText')
-      .attr('dy', (d) => (d.endAngle > Math.PI / 2 ? -35 : 42))
-      .append('textPath')
-      .attr('startOffset', '50%')
-      .attr('letter-spacing', '1px')
       .attr('text-anchor', 'middle')
-      .attr('stroke', 'rgb(0 0 0 / 10%)')
-      .attr('fill', (d) => d.data.color)
-      .attr('xlink:href', (_, i) => `#middleArc${i}`)
+      .attr('dominant-baseline', 'middle')
+      .attr('transform', (d) => {
+        const midAngle = (d.startAngle + d.endAngle) / 2
+        const [x, y] = state.arcGenerator!.centroid(d)
+        const degrees = midAngle * (180 / Math.PI)
+        return `translate(${x}, ${y}) rotate(${degrees})`
+      })
       .text((d) => d.data.value)
+      .attr('fill', (d) => d.data.color)
+      .attr('stroke', 'rgb(0 0 0 / 10%)')
+      .attr('letter-spacing', '1px')
   }
 
   const redrawWheel = () => {

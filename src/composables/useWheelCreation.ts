@@ -248,7 +248,7 @@ export function useWheelCreation(
         const x = Math.cos(midAngle) * textRadius
         const y = Math.sin(midAngle) * textRadius        
         const degrees = midAngle * (180 / Math.PI) + 180
-        return `translate(${x}, ${y}) rotate(${degrees})`
+        return `translate(${x}, ${y}) rotate(${degrees}) scale(-1, 1)`
       })
       .text((d) => d.data.value)
       .attr('fill', (d) => d.data.color)

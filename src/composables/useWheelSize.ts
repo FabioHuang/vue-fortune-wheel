@@ -1,7 +1,7 @@
 import { computed, ref } from 'vue'
 import type { Data, ImgParams } from '@/types'
 
-const MAX_FONT_SIZE = 64
+const MAX_FONT_SIZE = 30
 const MARGIN = 20
 
 interface Props {
@@ -27,9 +27,8 @@ export function useWheelSize(props: Props) {
   const fontSize = computed(() => {
     const longestStringLength = Math.max(...props.data.map(item => item.value.length), 0)
   
-    if (longestStringLength <= 5) return MAX_FONT_SIZE
-    if (longestStringLength <= 10) return MAX_FONT_SIZE / 2
-    if (longestStringLength <= 15) return MAX_FONT_SIZE / 4
+    if (longestStringLength <= 10) return MAX_FONT_SIZE
+    if (longestStringLength <= 20) return (20 - longestStringLength)*2 + MAX_FONT_SIZE / 4
     return MAX_FONT_SIZE / 8
   })
 

@@ -1,5 +1,5 @@
 import { ref as Ln, computed as Yt, defineComponent as ue, reactive as le, watch as ce, onMounted as fe, createElementBlock as he, openBlock as de, normalizeStyle as pe, unref as ge } from "vue";
-const ye = 32, _e = 20;
+const ye = 128, _e = 20;
 function me(t) {
   const n = Ln({ width: 600 }), e = Yt(() => {
     if (typeof window < "u") {

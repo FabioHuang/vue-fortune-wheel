@@ -1,7 +1,7 @@
 import { computed, ref } from 'vue'
 import type { Data, ImgParams } from '@/types'
 
-const MAX_FONT_SIZE = 32
+const MAX_FONT_SIZE = 128
 const MARGIN = 20
 
 interface Props {

@@ -237,6 +237,7 @@ export function useWheelCreation(
       .attr('class', 'middleArcText')
       .attr('text-anchor', 'middle')
       .attr('dominant-baseline', 'middle')
+      .attr('font-size', '32px') 
       .attr('transform', (d) => {
         const midAngle = (d.startAngle + d.endAngle) / 2
         const [x, y] = state.arcGenerator!.centroid(d)

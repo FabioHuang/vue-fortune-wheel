@@ -1,5 +1,5 @@
 import { ref as Pn, computed as zt, defineComponent as le, reactive as ce, watch as fe, onMounted as he, createElementBlock as de, openBlock as pe, normalizeStyle as ge, unref as ye } from "vue";
-const Yt = 30, _e = 20;
+const Yt = 50, _e = 20;
 function me(t) {
   const n = Pn({ width: 600 }), e = zt(() => {
     if (typeof window < "u") {

@@ -20,6 +20,7 @@ describe('useWheelCreation', () => {
   }
 
   const mockWheelSize = computed(() => ({ width: 200, height: 200 }))
+  const mockFontSize = computed(() => (10))
 
   beforeEach(() => {
     vi.resetAllMocks()
@@ -27,7 +28,7 @@ describe('useWheelCreation', () => {
   })
 
   it('creates wheel correctly', () => {
-    const { createWheel } = useWheelCreation(mockState, mockProps, mockWheelSize)
+    const { createWheel } = useWheelCreation(mockState, mockProps, mockWheelSize, mockFontSize)
 
     createWheel()
 
@@ -41,7 +42,7 @@ describe('useWheelCreation', () => {
   })
 
   it('redraws wheel when called', () => {
-    const { redrawWheel } = useWheelCreation(mockState, mockProps, mockWheelSize)
+    const { redrawWheel } = useWheelCreation(mockState, mockProps, mockWheelSize, mockFontSize)
     redrawWheel()
 
     expect(mockState.pieGenerator).not.toBeNull()

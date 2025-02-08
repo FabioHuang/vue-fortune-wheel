@@ -28,7 +28,7 @@ const emit = defineEmits<{
   (e: 'update', value: Data): void
 }>()
 
-const { wheelSize, wheelStyle } = useWheelSize(props)
+const { fontSize, wheelSize, wheelStyle } = useWheelSize(props)
 
 const state = reactive({
   pieGenerator: null as Pie<any, Data> | null,
@@ -42,7 +42,7 @@ const state = reactive({
   vis: null as SVGGElement | null
 })
 
-const { createWheel, redrawWheel } = useWheelCreation(state, props, wheelSize)
+const { createWheel, redrawWheel } = useWheelCreation(state, props, wheelSize, fontSize)
 
 const { spin } = useSpin(state, props, emit as Emits)
 

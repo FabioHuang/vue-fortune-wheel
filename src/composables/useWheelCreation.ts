@@ -21,7 +21,8 @@ interface State {
 export function useWheelCreation(
   state: State,
   props: Props,
-  wheelSize: ComputedRef<{ width: number; height: number }>
+  wheelSize: ComputedRef<{ width: number; height: number }>,
+  fontSize: ComputedRef<number>
 ) {
   const createMiddleCircle = () => {
     if (!state.container) return
@@ -237,7 +238,7 @@ export function useWheelCreation(
       .attr('class', 'middleArcText')
       .attr('text-anchor', 'middle')
       .attr('dominant-baseline', 'middle')
-      .attr('font-size', '32px') 
+      .attr('font-size', `${fontSize.value}px`) // Explicit size
       .attr('transform', (d) => {
         const midAngle = (d.startAngle + d.endAngle) / 2
         const [x, y] = state.arcGenerator!.centroid(d)

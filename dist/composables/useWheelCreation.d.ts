@@ -18,7 +18,7 @@ interface State {
 export declare function useWheelCreation(state: State, props: Props, wheelSize: ComputedRef<{
     width: number;
     height: number;
-}>): {
+}>, fontSize: ComputedRef<number>): {
     createWheel: () => void;
     redrawWheel: () => void;
 };

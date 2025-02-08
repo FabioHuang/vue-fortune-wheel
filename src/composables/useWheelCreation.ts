@@ -247,7 +247,7 @@ export function useWheelCreation(
         const textRadius = outerRadius - 30 // 20px from edge (adjust as needed)
         const x = Math.cos(midAngle) * textRadius
         const y = Math.sin(midAngle) * textRadius        
-        const degrees = midAngle * (180 / Math.PI)
+        const degrees = midAngle * (180 / Math.PI) + 180
         return `translate(${x}, ${y}) rotate(${degrees})`
       })
       .text((d) => d.data.value)

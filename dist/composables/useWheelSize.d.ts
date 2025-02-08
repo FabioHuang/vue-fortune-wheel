@@ -9,7 +9,7 @@ export declare function useWheelSize(props: Props): {
         width: number;
         height: number;
     }>;
-    fontSize: import('vue').ComputedRef<16 | 12 | 10>;
+    fontSize: import('vue').ComputedRef<32 | 12 | 10>;
     wheelStyle: import('vue').ComputedRef<{
         width: string;
         height: string;

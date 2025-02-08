@@ -198,7 +198,7 @@ export function useWheelCreation(
       .attr('class', 'slice')
       .attr('d', state.arcGenerator)
       .attr('stroke', '#ffffff')
-      .attr('stroke-width', '1')
+      .attr('stroke-width', '3')
       .attr('fill', (d) => d.data.bgColor)
 
     slices.each(function (d, i) {
@@ -230,30 +230,48 @@ export function useWheelCreation(
     if (!state.pieGenerator || !state.vis || !state.arcGenerator) return
 
     const arcs = state.pieGenerator(props.data)
-
     d3.select(state.vis)
       .selectAll<SVGTextElement, d3.PieArcDatum<Data>>('.middleArcText')
       .data(arcs)
       .join('text')
       .attr('class', 'middleArcText')
-      .attr('text-anchor', 'end')
-      .attr('dominant-baseline', 'middle')
       .attr('font-size', `${fontSize.value}px`) // Explicit size
       .attr('font-family', 'system-ui') // Set the font here
       .attr('font-weight', 600)
-      .attr('transform', (d) => {
-        const midAngle = (d.startAngle + d.endAngle) / 2
-        const outerRadius = state.rayon
-        const textRadius = outerRadius - 30 // 20px from edge (adjust as needed)
-        const x = Math.cos(midAngle) * textRadius
-        const y = Math.sin(midAngle) * textRadius        
-        const degrees = midAngle * (180 / Math.PI) + 180
-        return `translate(${x}, ${y}) rotate(${degrees}) scale(-1, -1)`
-      })
-      .text((d) => d.data.value)
-      .attr('fill', (d) => d.data.color)
-      .attr('stroke', 'rgb(0 0 0 / 10%)')
+      .attr('dy', (d) => (d.endAngle > Math.PI / 2 ? -35 : 42))
+      .append('textPath')
+      .attr('startOffset', '50%')
       .attr('letter-spacing', '1px')
+      .attr('text-anchor', 'end')
+      .attr('transform', `rotate(90)`)
+      .attr('stroke', 'rgb(0 0 0 / 10%)')
+      .attr('fill', (d) => d.data.color)
+      .attr('xlink:href', (_, i) => `#middleArc${i}`)
+      .text((d) => d.data.value)
+
+    // d3.select(state.vis)
+    //   .selectAll<SVGTextElement, d3.PieArcDatum<Data>>('.middleArcText')
+    //   .data(arcs)
+    //   .join('text')
+    //   .attr('class', 'middleArcText')
+      // .attr('text-anchor', 'end')
+      // .attr('dominant-baseline', 'middle')
+      // .attr('font-size', `${fontSize.value}px`) // Explicit size
+      // .attr('font-family', 'system-ui') // Set the font here
+      // .attr('font-weight', 600)
+      // .attr('transform', (d) => {
+      //   const midAngle = (d.startAngle + d.endAngle) / 2
+      //   const outerRadius = state.rayon
+      //   const textRadius = outerRadius - 30 // 20px from edge (adjust as needed)
+      //   const x = Math.cos(midAngle) * textRadius
+      //   const y = Math.sin(midAngle) * textRadius        
+      //   const degrees = midAngle * (180 / Math.PI) + 180
+      //   return `translate(${x}, ${y}) rotate(${degrees}) scale(-1, -1)`
+      // })
+      // .text((d) => d.data.value)
+      // .attr('fill', (d) => d.data.color)
+      // .attr('stroke', 'rgb(0 0 0 / 10%)')
+      // .attr('letter-spacing', '1px')
   }
 
   const redrawWheel = () => {

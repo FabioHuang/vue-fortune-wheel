@@ -26,8 +26,8 @@ export function useWheelSize(props: Props) {
 
   const fontSize = computed(() => {
     if (props.data.length <= 4) return MAX_FONT_SIZE
-    if (props.data.length <= 6) return 12
-    return 10
+    if (props.data.length <= 6) return 24
+    return 20
   })
 
   const wheelStyle = computed(() => ({

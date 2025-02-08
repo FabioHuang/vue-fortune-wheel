@@ -7,7 +7,7 @@ function me(t) {
       return { width: a, height: s };
     }
     return { width: 600, height: 600 };
-  }), r = Yt(() => t.data.length <= 4 ? ye : t.data.length <= 6 ? 12 : 10), i = Yt(() => ({
+  }), r = Yt(() => t.data.length <= 4 ? ye : t.data.length <= 6 ? 24 : 20), i = Yt(() => ({
     width: `${e.value.width}px`,
     height: `${e.value.height}px`,
     fontSize: `${r.value}px`,

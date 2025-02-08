@@ -240,7 +240,7 @@ export function useWheelCreation(
       .attr('transform', (d) => {
         const midAngle = (d.startAngle + d.endAngle) / 2
         const [x, y] = state.arcGenerator!.centroid(d)
-        const degrees = midAngle * (180 / Math.PI)
+        const degrees = midAngle * (180 / Math.PI) + 90
         return `translate(${x}, ${y}) rotate(${degrees})`
       })
       .text((d) => d.data.value)

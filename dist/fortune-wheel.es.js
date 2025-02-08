@@ -1999,7 +1999,7 @@ function ra(t, n, e) {
     if (!t.pieGenerator || !t.vis || !t.arcGenerator) return;
     const p = t.pieGenerator(n.data);
     N(t.vis).selectAll(".middleArcText").data(p).join("text").attr("class", "middleArcText").attr("text-anchor", "middle").attr("dominant-baseline", "middle").attr("transform", (g) => {
-      const w = (g.startAngle + g.endAngle) / 2, [_, $] = t.arcGenerator.centroid(g), v = w * (180 / Math.PI);
+      const w = (g.startAngle + g.endAngle) / 2, [_, $] = t.arcGenerator.centroid(g), v = w * (180 / Math.PI) + 90;
       return `translate(${_}, ${$}) rotate(${v})`;
     }).text((g) => g.data.value).attr("fill", (g) => g.data.color).attr("stroke", "rgb(0 0 0 / 10%)").attr("letter-spacing", "1px");
   };

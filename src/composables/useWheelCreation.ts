@@ -242,10 +242,10 @@ export function useWheelCreation(
       .attr('font-family', 'system-ui') // Set the font here
       .attr('font-weight', 600)
       .attr('transform', (d) => {
-        const midAngle = (d.startAngle + d.endAngle)
+        const midAngle = (d.startAngle + d.endAngle) / 2
         const [x, y] = state.arcGenerator!.centroid(d)
         const degrees = midAngle * (180 / Math.PI) + 90
-        return `translate(${x}, ${y}) rotate(${degrees})`
+        return `translate(${x}, ${y+100}) rotate(${degrees})`
       })
       .text((d) => d.data.value)
       .attr('fill', (d) => d.data.color)

@@ -2002,8 +2002,8 @@ function ra(t, n, e, r) {
     if (!t.pieGenerator || !t.vis || !t.arcGenerator) return;
     const p = t.pieGenerator(n.data);
     N(t.vis).selectAll(".middleArcText").data(p).join("text").attr("class", "middleArcText").attr("text-anchor", "start").attr("dominant-baseline", "middle").attr("font-size", `${r.value}px`).attr("font-family", "system-ui").attr("font-weight", 600).attr("transform", (m) => {
-      const v = m.startAngle + m.endAngle, [x, $] = t.arcGenerator.centroid(m), _ = v * (180 / Math.PI) + 90;
-      return `translate(${x}, ${$}) rotate(${_})`;
+      const v = (m.startAngle + m.endAngle) / 2, [x, $] = t.arcGenerator.centroid(m), _ = v * (180 / Math.PI) + 90;
+      return `translate(${x}, ${$ + 100}) rotate(${_})`;
     }).text((m) => m.data.value).attr("fill", (m) => m.data.color).attr("stroke", "rgb(0 0 0 / 10%)").attr("letter-spacing", "1px");
   };
   return { createWheel: l, redrawWheel: () => {

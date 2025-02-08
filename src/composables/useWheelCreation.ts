@@ -242,7 +242,7 @@ export function useWheelCreation(
       .attr('font-family', 'system-ui') // Set the font here
       .attr('font-weight', 600)
       .attr('transform', (d) => {
-        const midAngle = ((d.startAngle + d.endAngle) / 2) - 90
+        const midAngle = (d.startAngle + d.endAngle - Math.PI) / 2
         const outerRadius = state.rayon
         const textRadius = outerRadius - 30 // 20px from edge (adjust as needed)
         const x = Math.cos(midAngle) * textRadius

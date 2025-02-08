@@ -244,10 +244,10 @@ export function useWheelCreation(
       .attr('transform', (d) => {
         const midAngle = (d.startAngle + d.endAngle) / 2
         const outerRadius = state.rayon
-        const textRadius = outerRadius - 20 // 20px from edge (adjust as needed)
+        const textRadius = outerRadius - 30 // 20px from edge (adjust as needed)
         const x = Math.cos(midAngle) * textRadius
         const y = Math.sin(midAngle) * textRadius        
-        const degrees = midAngle * (180 / Math.PI) + 90
+        const degrees = midAngle * (180 / Math.PI)
         return `translate(${x}, ${y}) rotate(${degrees})`
       })
       .text((d) => d.data.value)

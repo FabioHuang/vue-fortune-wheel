@@ -1,5 +1,5 @@
 import { ref as Pn, computed as zt, defineComponent as le, reactive as ce, watch as fe, onMounted as he, createElementBlock as de, openBlock as pe, normalizeStyle as ge, unref as ye } from "vue";
-const Yt = 50, _e = 20;
+const Yt = 40, _e = 20;
 function me(t) {
   const n = Pn({ width: 600 }), e = zt(() => {
     if (typeof window < "u") {
@@ -1989,7 +1989,7 @@ function ra(t, n, e, r) {
   }, f = () => {
     if (!t.pieGenerator || !t.arcGenerator || !t.vis) return;
     const p = t.pieGenerator(n.data);
-    N(t.vis).selectAll(".slice").data(p).join("path").attr("class", "slice").attr("d", t.arcGenerator).attr("stroke", "#ffffff").attr("stroke-width", "5").attr("fill", (_) => _.data.bgColor).each(function(_, w) {
+    N(t.vis).selectAll(".slice").data(p).join("path").attr("class", "slice").attr("d", t.arcGenerator).attr("stroke", "#ffffff").attr("stroke-width", "1").attr("fill", (_) => _.data.bgColor).each(function(_, w) {
       var A, b, L, P, F;
       let m = ((b = (A = /(^.+?)L/.exec(N(this).attr("d") || "")) == null ? void 0 : A[1]) == null ? void 0 : b.replace(/,/g, " ")) || "";
       if (_.endAngle > Math.PI / 2) {

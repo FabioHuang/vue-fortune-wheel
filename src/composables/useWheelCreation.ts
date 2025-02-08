@@ -198,7 +198,7 @@ export function useWheelCreation(
       .attr('class', 'slice')
       .attr('d', state.arcGenerator)
       .attr('stroke', '#ffffff')
-      .attr('stroke-width', '5')
+      .attr('stroke-width', '1')
       .attr('fill', (d) => d.data.bgColor)
 
     slices.each(function (d, i) {

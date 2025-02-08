@@ -2001,9 +2001,9 @@ function ra(t, n, e, r) {
   }, d = () => {
     if (!t.pieGenerator || !t.vis || !t.arcGenerator) return;
     const p = t.pieGenerator(n.data);
-    N(t.vis).selectAll(".middleArcText").data(p).join("text").attr("class", "middleArcText").attr("text-anchor", "start").attr("dominant-baseline", "middle").attr("font-size", `${r.value}px`).attr("font-family", "system-ui").attr("font-weight", 600).attr("transform", (x) => {
+    N(t.vis).selectAll(".middleArcText").data(p).join("text").attr("class", "middleArcText").attr("text-anchor", "end").attr("dominant-baseline", "middle").attr("font-size", `${r.value}px`).attr("font-family", "system-ui").attr("font-weight", 600).attr("transform", (x) => {
       const _ = (x.startAngle + x.endAngle) / 2, $ = t.rayon - 30, m = Math.cos(_) * $, A = Math.sin(_) * $, b = _ * (180 / Math.PI) + 180;
-      return `translate(${m}, ${A}) scale(-1, 1) rotate(${b})`;
+      return `translate(${m}, ${A}) rotate(${b}) scale(-1, 1)`;
     }).text((x) => x.data.value).attr("fill", (x) => x.data.color).attr("stroke", "rgb(0 0 0 / 10%)").attr("letter-spacing", "1px");
   };
   return { createWheel: l, redrawWheel: () => {

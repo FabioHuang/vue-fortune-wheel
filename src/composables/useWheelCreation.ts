@@ -227,7 +227,7 @@ export function useWheelCreation(
   }
 
   const addText = () => {
-    if (!state.pieGenerator || !state.vis || !state.arcGenerator) return
+    if (!state.pieGenerator || !state.vis) return
 
     const arcs = state.pieGenerator(props.data)
 
@@ -236,13 +236,13 @@ export function useWheelCreation(
       .data(arcs)
       .join('text')
       .attr('class', 'middleArcText')
-      .attr('text-anchor', 'middle')
+      .attr('text-anchor', 'end')
       .attr('dominant-baseline', 'middle')
       .attr('font-size', `${fontSize.value}px`) // Explicit size
       .attr('font-family', 'system-ui') // Set the font here
       .attr('font-weight', 600)
       .attr('transform', (d) => {
-        const midAngle = (d.startAngle + d.endAngle) / 2
+        const midAngle = ((d.startAngle + d.endAngle) / 2) - 90
         const outerRadius = state.rayon
         const textRadius = outerRadius - 30 // 20px from edge (adjust as needed)
         const x = Math.cos(midAngle) * textRadius

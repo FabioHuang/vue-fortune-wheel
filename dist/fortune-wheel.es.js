@@ -2024,7 +2024,7 @@ function oa(t, n, e) {
         const d = s + s / 2;
         t.rotation += d - Math.round(s * 2);
         const g = cn(0, t.rotation);
-        t.vis && await N(t.vis).transition().duration(n.animDuration).ease(Fo.overshoot(0.3)).attrTween("transform", () => {
+        t.vis && await N(t.vis).transition().duration(n.animDuration).ease(Fo.overshoot(2)).attrTween("transform", () => {
           const p = n.data.length, x = nt / p;
           return (_) => {
             const w = g(_), $ = w % nt;

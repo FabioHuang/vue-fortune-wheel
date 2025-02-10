@@ -58,7 +58,7 @@ export function useSpin(state: State, props: Props, emit: Emits) {
           .select(state.vis)
           .transition()
           .duration(props.animDuration)
-          .ease(d3.easeBackOut.overshoot(0.3))
+          .ease(d3.easeBackOut.overshoot(2))
           .attrTween('transform', () => {
             const dataLength = props.data.length;
             const sliceWidth = FULL_CIRCLE / dataLength;

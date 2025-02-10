@@ -47,8 +47,10 @@ export function useSpin(state: State, props: Props, emit: Emits) {
       let picked = Math.round(dataLength - (state.rotation % FULL_CIRCLE) / sliceWidth)
       picked = picked >= dataLength ? picked % dataLength : picked
 
+
+
       // Center slice
-      const sliceSize = sliceWidth + sliceWidth / 2
+      const sliceSize = sliceWidth + (sliceWidth / 2) + (Math.random() - 0.5) * sliceWidth*0.9
       state.rotation += sliceSize - Math.round(sliceWidth * 2)
 
       const interpolate = d3.interpolate(0, state.rotation)
@@ -58,7 +60,7 @@ export function useSpin(state: State, props: Props, emit: Emits) {
           .select(state.vis)
           .transition()
           .duration(props.animDuration)
-          .ease(d3.easeBackOut.overshoot(0.3))
+          .ease(d3.easeBackOut.overshoot(0.0))
           .attrTween('transform', () => {
             const dataLength = props.data.length;
             const sliceWidth = FULL_CIRCLE / dataLength;

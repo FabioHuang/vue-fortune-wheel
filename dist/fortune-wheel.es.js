@@ -2021,10 +2021,10 @@ function oa(t, n, e) {
         t.rotation = Math.round(h / s) * s;
         let f = Math.round(o - t.rotation % nt / s);
         f = f >= o ? f % o : f;
-        const d = s + s / 2;
+        const d = s + s / 2 + (Math.random() - 0.5) * s * 0.9;
         t.rotation += d - Math.round(s * 2);
         const g = cn(0, t.rotation);
-        t.vis && await N(t.vis).transition().duration(n.animDuration).ease(Fo.overshoot(0.3)).attrTween("transform", () => {
+        t.vis && await N(t.vis).transition().duration(n.animDuration).ease(Fo.overshoot(0)).attrTween("transform", () => {
           const p = n.data.length, x = nt / p;
           return (_) => {
             const w = g(_), $ = w % nt;

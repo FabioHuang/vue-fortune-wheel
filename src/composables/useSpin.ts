@@ -3,7 +3,7 @@ import * as d3 from 'd3'
 import type { Data } from '@/types'
 
 const FULL_CIRCLE = 360
-const ROTATIONS = 5
+const ROTATIONS = 10
 
 interface Props {
   data: Data[]

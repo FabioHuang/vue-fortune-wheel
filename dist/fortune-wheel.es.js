@@ -1994,7 +1994,7 @@ function ra(t, n, e, r) {
     N("#wheel").selectAll("*").remove(), l();
   } };
 }
-const nt = 360, ia = 5;
+const nt = 360, ia = 10;
 function oa(t, n, e) {
   const r = Ln(!1), i = (o) => n.data.length === 0 ? 0 : n.data.findIndex((s) => s.id === o) + 1;
   return { spin: async () => {

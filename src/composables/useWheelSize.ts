@@ -28,8 +28,7 @@ export function useWheelSize(props: Props) {
     const longestStringLength = Math.max(...props.data.map(item => item.value.length), 0)
   
     if (longestStringLength < 9) return MAX_FONT_SIZE
-    if (longestStringLength <= 15) return MAX_FONT_SIZE - (longestStringLength - 8)*2
-    return MAX_FONT_SIZE / 8
+    return MAX_FONT_SIZE - (longestStringLength - 8)*2
   })
 
   const wheelStyle = computed(() => ({

@@ -250,7 +250,10 @@ export function useWheelCreation(
         const degrees = midAngle * (180 / Math.PI) + 180
         return `translate(${x}, ${y}) rotate(${degrees}) scale(-1, -1)`
       })
-      .text((d) => d.data.value)
+      .text((d) => {
+        const text = d.data.value
+        return text.length > 10 ? text.slice(0, 10) + "..." : text
+      })
       .attr('fill', (d) => d.data.color)
       .attr('stroke', 'rgb(0 0 0 / 10%)')
       .attr('letter-spacing', '1px')

@@ -252,7 +252,7 @@ export function useWheelCreation(
       })
       .text((d) => {
         const text = d.data.value
-        return text.length > 10 ? text.slice(0, 10) + "..." : text
+        return text.length > 14 ? text.slice(0, 14) + "..." : text
       })
       .attr('fill', (d) => d.data.color)
       .attr('stroke', 'rgb(0 0 0 / 10%)')

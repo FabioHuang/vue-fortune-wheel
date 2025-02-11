@@ -1992,7 +1992,7 @@ function ia(t, n, e, r) {
       return `translate(${x}, ${A}) rotate(${b}) scale(-1, -1)`;
     }).text((m) => {
       const y = m.data.value;
-      return y.length > 10 ? y.slice(0, 10) + "..." : y;
+      return y.length > 14 ? y.slice(0, 14) + "..." : y;
     }).attr("fill", (m) => m.data.color).attr("stroke", "rgb(0 0 0 / 10%)").attr("letter-spacing", "1px");
   };
   return { createWheel: l, redrawWheel: () => {
